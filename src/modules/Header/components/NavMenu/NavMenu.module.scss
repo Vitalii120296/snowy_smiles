@@ -1,0 +1,134 @@
+@use '../../../../style/main' as *;
+
+.nav {
+  height: inherit;
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+
+  }
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+    height: inherit;
+    position: relative;
+  }
+
+  &__link {
+    list-style: none;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-block: 4px;
+    border-radius: 15px;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    &::after {
+      position: absolute;
+      content: '';
+      border-bottom: 1px solid $primary;
+      box-shadow: 0 -1px 5px $primary,
+        0 -10px 10px $primary,
+        0 -10px 15px $primary,
+        0 -10px 15px $primary,
+        0 -15px 20px $primary;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+}
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in,
+    top 0.2s ease-in;
+  z-index: 3;
+  padding: 20px 0 25px 0;
+
+
+  &__link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    padding: 10px 0 10px 10px;
+    width: 100%;
+    display: flex;
+    font-size: 15px;
+
+    &:hover {
+      background-color: $secondary;
+    }
+
+  }
+
+  &__item {
+    width: 150px;
+    box-shadow: 2px 2px 5px black;
+    background-color: white;
+    border-radius: 0 5px 5px;
+    overflow: hidden;
+
+  }
+}
+
+.services__triangle {
+  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid black;
+  transition: transform 0.2s ease-in;
+}
+
+.services__hover:hover .dropdown {
+  opacity: 1;
+  top: 55px;
+  pointer-events: auto;
+
+}
+
+.services__hover:active .dropdown {
+  opacity: 1;
+  top: 70px;
+  pointer-events: auto;
+
+}
+
+.services__hover:hover .services__triangle {
+  transform: rotate(-180deg);
+}

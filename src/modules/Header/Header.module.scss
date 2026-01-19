@@ -1,0 +1,109 @@
+@use '../../style/main' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 10px 10px;
+  height: 70px;
+  color: black;
+
+  &__logo {
+    height: inherit;
+    width: auto;
+    display: flex;
+    align-items: center;
+
+    & img {
+      height: 25px;
+
+      @include on-tablet {
+        height: 35px;
+      }
+
+      @include on-desktop {
+        height: 50px;
+      }
+    }
+  }
+
+  &__nav {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+
+    & a {
+      padding: 5px;
+      border-radius: 15px;
+      color: inherit;
+      background-color: #fff;
+    }
+  }
+
+  &__burger {
+    display: flex;
+    position: absolute;
+    left: -255px;
+    top: 70px;
+    z-index: 999;
+    transition: left 0.3s ease-in-out;
+
+
+    &.active {
+      left: 0;
+    }
+
+    &_button {
+      display: flex;
+      height: 100%;
+      width: 25px;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 30px;
+      text-shadow: 0 0 8px white;
+
+      .line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        fill: black;
+        transform-origin: center;
+        transition: all 0.3s ease-in-out;
+        width: 16px;
+        filter: drop-shadow(0 0 1px white);
+      }
+
+      &.open {
+        .top {
+          transform: translateY(3px) translateX(-8px) rotate(45deg);
+          width: 23px;
+        }
+
+        .mid {
+          opacity: 0;
+        }
+
+        .bot {
+          transform: translateY(1px) translateX(-4px) rotate(-45deg);
+          width: 23px;
+        }
+      }
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+  }
+
+
+}

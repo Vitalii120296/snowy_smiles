@@ -1,0 +1,102 @@
+@use '../../style/main' as *;
+
+.about {
+  padding: 50px 20px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  .title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: $primary; // головний акцентний колір сайту
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  .block {
+    margin-bottom: 3rem;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      color: $primary;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    strong {
+      color: $secondary;
+    }
+  }
+
+  // FAQ section
+  .faq {
+    margin-bottom: 1.5rem;
+    padding: 15px 20px;
+    border-left: 4px solid $primary;
+    background: #f9f9f9;
+    border-radius: 6px;
+
+    p {
+      margin: 0.4rem 0;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #111;
+    }
+  }
+
+  // Optional grid if потрібно ще блоки (як stains)
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    h4 {
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $secondary;
+    }
+
+    ul {
+      margin-left: 1rem;
+      list-style: disc;
+
+      li {
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  // Cancellation Policy стилізація
+  .policy {
+    font-size: 0.95rem;
+    padding: 15px 20px;
+    border: 1px dashed $secondary;
+    border-radius: 8px;
+    background: #fcfcfc;
+  }
+}
