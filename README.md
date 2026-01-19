@@ -29,7 +29,7 @@ Features:
 Getting Started:
 #
 1. Clone the repository:
-git clone https://github.com/Vitalii120296/Snowy_smiles.git
+git clone https://github.com/Vitalii120296/snowy_smiles.git
 cd Snowy_smiles
 #
 2. Install dependencies:
